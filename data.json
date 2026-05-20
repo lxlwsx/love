@@ -1,0 +1,26 @@
+{
+  "settings": {
+    "startDate": "2024-01-01",
+    "boyfriendName": "小亮",
+    "girlfriendName": "思炫宝宝",
+    "girlfriendBirthday": "",
+    "boyfriendBirthday": "",
+    "boyfriendAvatar": "",
+    "girlfriendAvatar": "",
+    "theme": "pink",
+    "welcomeText": "欢迎回来，思炫宝宝 🌸",
+    "enableNotifications": true,
+    "githubToken": ""
+  },
+  "photos": [],
+  "meals": [],
+  "outfits": [],
+  "notifications": [],
+  "friendCircle": [],
+  "wishList": [],
+  "anniversaries": [],
+  "steps": {
+    "count": 8888,
+    "lastUpdated": null
+  }
+}
