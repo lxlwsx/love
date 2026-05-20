@@ -187,11 +187,10 @@ window.Components.Home = {
     var ua = navigator.userAgent.toLowerCase();
     var isAndroid = /android/.test(ua);
     var isIOS = /iphone|ipad|ipod/.test(ua);
-    var isMobile = isAndroid || isIOS;
     var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
     var installDismissed = Vue.ref(false);
     var showInstallGuide = Vue.computed(function () {
-      return isMobile && !isStandalone && !installDismissed.value;
+      return !isStandalone && !installDismissed.value;
     });
 
     function dismissInstall() {
