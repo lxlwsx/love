@@ -7,19 +7,17 @@ window.Components.MemoryWall = {
   template: `
     <div class="page memory-page">
 
-      <!-- 顶部 -->
-      <div class="memory-header">
-        <div>
-          <div style="font-size: 20px; font-weight: 700; color: var(--text-primary);">
-            📸 专属回忆墙
-          </div>
-          <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-            记录我们的每一个美好瞬间 💕
-          </div>
-        </div>
-        <button class="btn btn-pink btn-small" @click="showUpload = true">
-          ✨ 上传记忆
+      <!-- 顶部导航 -->
+      <div class="page-top-bar">
+        <button class="back-btn" @click="goBack">
+          <span class="back-icon">‹</span> 返回
         </button>
+        <div class="page-top-title">📸 专属回忆墙</div>
+        <div class="page-top-right">
+          <button class="btn btn-pink btn-small" @click="showUpload = true" style="padding: 6px 12px; font-size: 12px;">
+            ✨ 上传
+          </button>
+        </div>
       </div>
 
       <!-- 照片网格 -->
@@ -208,7 +206,8 @@ window.Components.MemoryWall = {
       confirmUpload: confirmUpload,
       viewPhoto: viewPhoto,
       deletePhoto: deletePhoto,
-      formatDate: formatDate
+      formatDate: formatDate,
+      goBack: function () { navigateTo('#/home'); }
     };
   }
 };

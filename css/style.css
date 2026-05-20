@@ -2189,3 +2189,63 @@ body::after {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
+
+/* ============================================
+   返回按钮栏样式
+   ============================================ */
+.page-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  min-height: 36px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--white);
+  border: 2px solid var(--pink-light);
+  border-radius: var(--radius-full);
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pink-dark);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-btn:hover {
+  background: var(--pink-soft);
+  border-color: var(--pink-primary);
+}
+
+.back-btn:active {
+  transform: scale(0.95);
+  background: var(--pink-light);
+}
+
+.back-btn .back-icon {
+  font-size: 16px;
+  transition: transform var(--transition-fast);
+}
+
+.back-btn:active .back-icon {
+  transform: translateX(-3px);
+}
+
+.page-top-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  flex: 1;
+}
+
+.page-top-right {
+  width: 70px;
+  display: flex;
+  justify-content: flex-end;
+}

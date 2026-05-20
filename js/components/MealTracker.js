@@ -8,14 +8,12 @@ window.Components.MealTracker = {
     <div class="page meal-page">
 
       <!-- 顶部导航 -->
-      <div class="meal-top-bar">
-        <button class="btn btn-small btn-outline" @click="goBack" style="padding: 6px 12px;">
-          ← 返回
+      <div class="page-top-bar">
+        <button class="back-btn" @click="goBack">
+          <span class="back-icon">‹</span> 返回
         </button>
-        <div style="font-size: 16px; font-weight: 700; color: var(--pink-dark);">
-          🍚 按时吃饭
-        </div>
-        <div style="width: 60px;"></div>
+        <div class="page-top-title">🍚 按时吃饭</div>
+        <div class="page-top-right"></div>
       </div>
 
       <!-- 日期选择 -->

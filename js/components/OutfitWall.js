@@ -7,9 +7,13 @@ window.Components.OutfitWall = {
   template: `
     <div class="page outfit-page">
 
-      <div class="outfit-header">
-        <div style="font-size: 20px; font-weight: 700; color: var(--text-primary);">👗 今日穿搭</div>
-        <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">每天都要美美的~</div>
+      <!-- 顶部导航 -->
+      <div class="page-top-bar">
+        <button class="back-btn" @click="goBack">
+          <span class="back-icon">‹</span> 返回
+        </button>
+        <div class="page-top-title">👗 今日穿搭</div>
+        <div class="page-top-right"></div>
       </div>
 
       <!-- 今日穿搭 -->
@@ -177,7 +181,8 @@ window.Components.OutfitWall = {
       deleteToday: deleteToday,
       changeMonth: changeMonth,
       clickDay: clickDay,
-      viewPhoto: viewPhoto
+      viewPhoto: viewPhoto,
+      goBack: function () { navigateTo('#/home'); }
     };
   }
 };

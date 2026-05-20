@@ -7,6 +7,15 @@ window.Components.Anniversary = {
   template: `
     <div class="page anniversary-page">
 
+      <!-- 顶部导航 -->
+      <div class="page-top-bar">
+        <button class="back-btn" @click="goBack">
+          <span class="back-icon">‹</span> 返回
+        </button>
+        <div class="page-top-title">💝 纪念日管理</div>
+        <div class="page-top-right"></div>
+      </div>
+
       <!-- 主纪念日卡片 -->
       <div class="card anniversary-main-card">
         <div style="font-size: 13px; color: var(--text-secondary);">💝 我们在一起已经</div>
@@ -300,7 +309,8 @@ window.Components.Anniversary = {
       editAnniversary: editAnniversary,
       saveAnniversary: saveAnniversary,
       deleteAnniversary: deleteAnniversary,
-      formatDate: formatDate
+      formatDate: formatDate,
+      goBack: function () { navigateTo('#/home'); }
     };
   }
 };
