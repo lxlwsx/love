@@ -2249,3 +2249,11 @@ body::after {
   display: flex;
   justify-content: flex-end;
 }
+
+/* 安装引导卡片 */
+.install-card {
+  background: linear-gradient(135deg, #FFF0F5, #FFE8EE);
+  border: 2px dashed var(--pink-primary);
+  position: relative;
+  animation: slideUp 0.5s ease;
+}

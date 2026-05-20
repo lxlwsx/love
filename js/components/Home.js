@@ -7,6 +7,37 @@ window.Components.Home = {
   template: `
     <div class="page home-page">
 
+      <!-- 安装引导卡片 -->
+      <div v-if="showInstallGuide" class="card install-card">
+        <div style="display: flex; align-items: flex-start; gap: 10px;">
+          <span style="font-size: 28px;">📱</span>
+          <div style="flex: 1;">
+            <div style="font-size: 14px; font-weight: 600; color: var(--pink-dark); margin-bottom: 4px;">
+              添加到手机桌面，随时打开~
+            </div>
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.8;">
+              <div v-if="isAndroid">
+                <b>安卓手机：</b><br>
+                点击浏览器右上角 <b>⋮ 三个点</b> →<br>
+                找到 <b>「添加到主屏幕」</b> 或 <b>「安装应用」</b> →<br>
+                点确认即可！
+              </div>
+              <div v-else-if="isIOS">
+                <b>iPhone：</b><br>
+                点击底部 <b>分享按钮 ↗️</b> →<br>
+                往下滑找到 <b>「添加到主屏幕」</b> →<br>
+                点右上角 <b>「添加」</b> 即可！
+              </div>
+              <div v-else>
+                点浏览器菜单 → <b>「添加到主屏幕」</b><br>
+                即可像 App 一样打开~
+              </div>
+            </div>
+          </div>
+          <button @click="dismissInstall" style="background: none; border: none; font-size: 18px; color: var(--text-light); cursor: pointer; padding: 2px;">✕</button>
+        </div>
+      </div>
+
       <!-- 欢迎卡片 -->
       <div class="card welcome-card">
         <div style="text-align: center;">
@@ -151,6 +182,22 @@ window.Components.Home = {
   `,
   setup: function () {
     var store = window.appStore;
+
+    // 安装引导
+    var ua = navigator.userAgent.toLowerCase();
+    var isAndroid = /android/.test(ua);
+    var isIOS = /iphone|ipad|ipod/.test(ua);
+    var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+    var installDismissed = Vue.ref(localStorage.getItem('install_dismissed') === '1');
+    var showInstallGuide = Vue.computed(function () {
+      return !isStandalone && !installDismissed.value;
+    });
+
+    function dismissInstall() {
+      installDismissed.value = true;
+      localStorage.setItem('install_dismissed', '1');
+    }
+
     var showEditSteps = Vue.ref(false);
     var editStepsValue = Vue.ref(store.steps.count);
     var showCallPopup = Vue.ref(false);
@@ -229,6 +276,10 @@ window.Components.Home = {
       daysTogether: daysTogether,
       todayOutfit: todayOutfit,
       stepsMessage: stepsMessage,
+      isAndroid: isAndroid,
+      isIOS: isIOS,
+      showInstallGuide: showInstallGuide,
+      dismissInstall: dismissInstall,
       showEditSteps: showEditSteps,
       editStepsValue: editStepsValue,
       showCallPopup: showCallPopup,
