@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="思炫小窝">
+  <meta name="theme-color" content="#FF69B4">
+  <meta name="description" content="小亮送给思炫宝宝的专属恋爱应用 💕">
+  <title>思炫宝宝的专属小窝 💕</title>
+
+  <!-- PWA 清单 -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23FFB6C1'/><text x='256' y='380' font-size='300' text-anchor='middle'>💕</text></svg>">
+
+  <!-- Vue 3 CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- 全局样式 -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- 页面图标 -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💕</text></svg>">
+</head>
+<body>
+
+  <!-- Vue 应用挂载点 -->
+  <div id="app"></div>
+
+  <!-- 工具函数（无依赖） -->
+  <script src="js/utils.js"></script>
+
+  <!-- 状态管理（依赖 utils.js） -->
+  <script src="js/store.js"></script>
+
+  <!-- 路由（依赖 store.js） -->
+  <script src="js/router.js"></script>
+
+  <!-- 页面组件（依赖 store.js、utils.js） -->
+  <script src="js/components/Home.js"></script>
+  <script src="js/components/MemoryWall.js"></script>
+  <script src="js/components/FriendCircle.js"></script>
+  <script src="js/components/OrderFood.js"></script>
+  <script src="js/components/Profile.js"></script>
+  <script src="js/components/MealTracker.js"></script>
+  <script src="js/components/OutfitWall.js"></script>
+  <script src="js/components/Anniversary.js"></script>
+  <script src="js/components/NotificationCenter.js"></script>
+  <script src="js/components/CallBoyfriend.js"></script>
+  <script src="js/components/NaNiNvYou.js"></script>
+
+  <!-- 应用入口（依赖所有组件） -->
+  <script src="js/app.js"></script>
+
+  <!-- PWA Service Worker 注册 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function () {
+        navigator.serviceWorker.register('./sw.js').then(function (reg) {
+          console.log('✅ Service Worker 注册成功');
+        }).catch(function (err) {
+          console.log('Service Worker 注册失败（不影响使用）:', err);
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>

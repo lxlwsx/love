@@ -1,0 +1,18 @@
+{
+  "name": "思炫宝宝的专属小窝",
+  "short_name": "思炫小窝",
+  "description": "小亮送给思炫宝宝的专属恋爱应用",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#FFF5F7",
+  "theme_color": "#FF69B4",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23FFB6C1'/><text x='256' y='380' font-size='300' text-anchor='middle'>💕</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
